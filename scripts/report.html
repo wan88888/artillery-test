@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Artillery Load Test Report</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    canvas { max-width: 600px; }
+  </style>
+</head>
+<body>
+  <h1>Artillery Load Test Report</h1>
+  <p><strong>Duration:</strong> <span id="duration">9.68</span> seconds</p>
+  <p><strong>Total Requests:</strong> <span id="requests">50</span></p>
+  <p><strong>RPS:</strong> <span id="rps">10</span></p>
+  <p><strong>Average Latency:</strong> <span id="latency">161.8</span> ms</p>
+
+  <h2>Latency Distribution</h2>
+  <canvas id="latencyChart"></canvas>
+
+  <script>
+    const data = {"aggregate":{"counters":{"vusers.created_by_name.Get Posts and Validate":50,"vusers.created":50,"http.requests":50,"http.codes.200":50,"http.responses":50,"http.downloaded_bytes":0,"plugins.expect.ok":50,"plugins.expect.ok.statusCode":50,"plugins.metrics-by-endpoint./posts/1.codes.200":50,"vusers.failed":0,"vusers.completed":50},"rates":{"http.request_rate":10},"firstCounterAt":1750660267761,"firstHistogramAt":1750660268426,"lastCounterAt":1750660277438,"lastHistogramAt":1750660277438,"firstMetricAt":1750660267761,"lastMetricAt":1750660277438,"period":1750660270000,"summaries":{"http.response_time":{"min":152,"max":177,"count":50,"mean":161.8,"p50":162.4,"median":162.4,"p75":165.7,"p90":169,"p95":172.5,"p99":175.9,"p999":175.9},"http.response_time.2xx":{"min":152,"max":177,"count":50,"mean":161.8,"p50":162.4,"median":162.4,"p75":165.7,"p90":169,"p95":172.5,"p99":175.9,"p999":175.9},"plugins.metrics-by-endpoint.server-timing./posts/1":{"min":-1,"max":-1,"count":2,"mean":-25,"p50":-1,"median":-1,"p75":-1,"p90":-1,"p95":-1,"p99":-1,"p999":-1},"plugins.metrics-by-endpoint.response_time./posts/1":{"min":152,"max":177,"count":50,"mean":161.8,"p50":162.4,"median":162.4,"p75":165.7,"p90":169,"p95":172.5,"p99":175.9,"p999":175.9},"vusers.session_length":{"min":456.8,"max":676.5,"count":50,"mean":478.2,"p50":468.8,"median":468.8,"p75":468.8,"p90":478.3,"p95":518.1,"p99":632.8,"p999":632.8}},"histograms":{"http.response_time":{"min":152,"max":177,"count":50,"mean":161.8,"p50":162.4,"median":162.4,"p75":165.7,"p90":169,"p95":172.5,"p99":175.9,"p999":175.9},"http.response_time.2xx":{"min":152,"max":177,"count":50,"mean":161.8,"p50":162.4,"median":162.4,"p75":165.7,"p90":169,"p95":172.5,"p99":175.9,"p999":175.9},"plugins.metrics-by-endpoint.server-timing./posts/1":{"min":-1,"max":-1,"count":2,"mean":-25,"p50":-1,"median":-1,"p75":-1,"p90":-1,"p95":-1,"p99":-1,"p999":-1},"plugins.metrics-by-endpoint.response_time./posts/1":{"min":152,"max":177,"count":50,"mean":161.8,"p50":162.4,"median":162.4,"p75":165.7,"p90":169,"p95":172.5,"p99":175.9,"p999":175.9},"vusers.session_length":{"min":456.8,"max":676.5,"count":50,"mean":478.2,"p50":468.8,"median":468.8,"p75":468.8,"p90":478.3,"p95":518.1,"p99":632.8,"p999":632.8}}},"intermediate":[{"counters":{"vusers.created_by_name.Get Posts and Validate":15,"vusers.created":15,"http.requests":15,"http.codes.200":10,"http.responses":10,"plugins.expect.ok":10,"plugins.expect.ok.statusCode":10,"plugins.metrics-by-endpoint./posts/1.codes.200":10,"vusers.failed":0,"vusers.completed":10},"rates":{"http.request_rate":10},"http.request_rate":null,"firstCounterAt":1750660267761,"firstHistogramAt":1750660268426,"lastCounterAt":1750660269968,"lastHistogramAt":1750660269424,"firstMetricAt":1750660267761,"lastMetricAt":1750660269968,"period":"1750660260000","summaries":{"http.response_time":{"min":152,"max":177,"count":10,"mean":165.1,"p50":162.4,"median":162.4,"p75":172.5,"p90":175.9,"p95":175.9,"p99":175.9,"p999":175.9},"http.response_time.2xx":{"min":152,"max":177,"count":10,"mean":165.1,"p50":162.4,"median":162.4,"p75":172.5,"p90":175.9,"p95":175.9,"p99":175.9,"p999":175.9},"plugins.metrics-by-endpoint.server-timing./posts/1":{"min":-1,"max":-1,"count":10,"mean":-1,"p50":0,"median":0,"p75":0,"p90":0,"p95":0,"p99":0,"p999":0},"plugins.metrics-by-endpoint.response_time./posts/1":{"min":152,"max":177,"count":10,"mean":165.1,"p50":162.4,"median":162.4,"p75":172.5,"p90":175.9,"p95":175.9,"p99":175.9,"p999":175.9},"vusers.session_length":{"min":456.8,"max":676.5,"count":10,"mean":524,"p50":478.3,"median":478.3,"p75":518.1,"p90":632.8,"p95":632.8,"p99":632.8,"p999":632.8}},"histograms":{"http.response_time":{"min":152,"max":177,"count":10,"mean":165.1,"p50":162.4,"median":162.4,"p75":172.5,"p90":175.9,"p95":175.9,"p99":175.9,"p999":175.9},"http.response_time.2xx":{"min":152,"max":177,"count":10,"mean":165.1,"p50":162.4,"median":162.4,"p75":172.5,"p90":175.9,"p95":175.9,"p99":175.9,"p999":175.9},"plugins.metrics-by-endpoint.server-timing./posts/1":{"min":-1,"max":-1,"count":10,"mean":-1,"p50":0,"median":0,"p75":0,"p90":0,"p95":0,"p99":0,"p999":0},"plugins.metrics-by-endpoint.response_time./posts/1":{"min":152,"max":177,"count":10,"mean":165.1,"p50":162.4,"median":162.4,"p75":172.5,"p90":175.9,"p95":175.9,"p99":175.9,"p999":175.9},"vusers.session_length":{"min":456.8,"max":676.5,"count":10,"mean":524,"p50":478.3,"median":478.3,"p75":518.1,"p90":632.8,"p95":632.8,"p99":632.8,"p999":632.8}}},{"counters":{"http.codes.200":40,"http.responses":40,"plugins.expect.ok":40,"plugins.expect.ok.statusCode":40,"plugins.metrics-by-endpoint./posts/1.codes.200":40,"vusers.failed":0,"vusers.completed":40,"vusers.created_by_name.Get Posts and Validate":35,"vusers.created":35,"http.requests":35},"rates":{"http.request_rate":5},"http.request_rate":null,"firstCounterAt":1750660270227,"firstHistogramAt":1750660270227,"lastCounterAt":1750660277438,"lastHistogramAt":1750660277438,"firstMetricAt":1750660270227,"lastMetricAt":1750660277438,"period":"1750660270000","summaries":{"http.response_time":{"min":154,"max":171,"count":40,"mean":161,"p50":159.2,"median":159.2,"p75":162.4,"p90":165.7,"p95":165.7,"p99":169,"p999":169},"http.response_time.2xx":{"min":154,"max":171,"count":40,"mean":161,"p50":159.2,"median":159.2,"p75":162.4,"p90":165.7,"p95":165.7,"p99":169,"p999":169},"plugins.metrics-by-endpoint.server-timing./posts/1":{"min":-1,"max":-1,"count":40,"mean":-1,"p50":0,"median":0,"p75":0,"p90":0,"p95":0,"p99":0,"p999":0},"plugins.metrics-by-endpoint.response_time./posts/1":{"min":154,"max":171,"count":40,"mean":161,"p50":159.2,"median":159.2,"p75":162.4,"p90":165.7,"p95":165.7,"p99":169,"p999":169},"vusers.session_length":{"min":456.9,"max":479.7,"count":40,"mean":466.8,"p50":468.8,"median":468.8,"p75":468.8,"p90":468.8,"p95":478.3,"p99":478.3,"p999":478.3}},"histograms":{"http.response_time":{"min":154,"max":171,"count":40,"mean":161,"p50":159.2,"median":159.2,"p75":162.4,"p90":165.7,"p95":165.7,"p99":169,"p999":169},"http.response_time.2xx":{"min":154,"max":171,"count":40,"mean":161,"p50":159.2,"median":159.2,"p75":162.4,"p90":165.7,"p95":165.7,"p99":169,"p999":169},"plugins.metrics-by-endpoint.server-timing./posts/1":{"min":-1,"max":-1,"count":40,"mean":-1,"p50":0,"median":0,"p75":0,"p90":0,"p95":0,"p99":0,"p999":0},"plugins.metrics-by-endpoint.response_time./posts/1":{"min":154,"max":171,"count":40,"mean":161,"p50":159.2,"median":159.2,"p75":162.4,"p90":165.7,"p95":165.7,"p99":169,"p999":169},"vusers.session_length":{"min":456.9,"max":479.7,"count":40,"mean":466.8,"p50":468.8,"median":468.8,"p75":468.8,"p90":468.8,"p95":478.3,"p99":478.3,"p999":478.3}}}]};
+    const agg = data.aggregate;
+    const latency = agg.summaries["http.response_time"];
+
+    if (latency) {
+      const ctx = document.getElementById('latencyChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['p50', 'p75', 'p90', 'p95', 'p99', 'p999'],
+          datasets: [{
+            label: 'Latency (ms)',
+            data: [
+              latency.p50,
+              latency.p75,
+              latency.p90,
+              latency.p95,
+              latency.p99,
+              latency.p999
+            ],
+            backgroundColor: 'rgba(54, 162, 235, 0.7)'
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
